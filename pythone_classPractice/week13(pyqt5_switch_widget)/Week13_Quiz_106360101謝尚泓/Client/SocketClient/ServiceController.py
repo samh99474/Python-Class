@@ -13,10 +13,11 @@ class ExecuteCommand(QtCore.QThread):
         self.dict_data = dict_data
 
     def run(self):
-        #先查詢query是否存在此學生名稱
+        #Send command and parameters(data) to the socket server
         self.socket_client.send_command(self.command, self.dict_data)
         print("\nclient send data to server => \'command\':{}, \'parameters\':{}".format(self.command, self.dict_data))
 
+        #waiting for response from the socket server
         boolean, result = self.socket_client.wait_response()
         result = json.loads(result) # convert dictionary string to dictionary
         self.return_sig.emit(json.dumps(result))
