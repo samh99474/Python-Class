@@ -1,0 +1,31 @@
+=== LOG.txt ===
+
+Hella buys Computer for $734
+Alice buys Computer for $548
+[VIP] Peter buys Computer for $666
+[VIP] Peter buys Book for $973
+Alice buys Paper for $545
+Alice buys Notebook for $501
+Bob buys Paper for $182
+[VIP] Sue buys Notebook for $396
+[VIP] Sue buys Notebook for $4
+Bob buys Book for $850
+Bob buys Book for $691
+
+
+
+=== Analysis_result.txt === 
+
+[VIP]
+Peter buys Computer: 666, Book: 973
+Sue buys NoteBook: 400
+
+[Member]
+Hella buys Computer: 734
+Alice buys Computer: 548, Paper 545, Notebook: 501
+Bob buys Paper: 182, Book 1541
+
+Total Computer sales: 1948
+Total NoteBook sales: 901
+Total Paper sales: 627
+Total Book sales: 2514
