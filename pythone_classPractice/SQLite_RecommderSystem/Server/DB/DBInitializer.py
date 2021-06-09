@@ -59,7 +59,15 @@ necessary_table_to_create = {
                 rating	REAL,
                 timestamp	INTEGER
             );
+        """,
+        "User_info_Table":
         """
+            CREATE TABLE User_info_Table
+            (
+                userId INTEGER PRIMARY KEY,
+                userName VARCHAR(255)         
+            );
+        """,
 }
 
 

@@ -59,7 +59,7 @@ class MovieData_Table:
             cursor.execute(command)
             connection.commit()
 
-    def select_a_Movie_ID(self, MovieName):
+    def select_a_ID(self, MovieName):
         command = "SELECT * FROM MovieData_Table WHERE title='{}';".format(MovieName)
 
         with DBConnection() as connection:
@@ -131,6 +131,14 @@ class MovieData_Table:
 
     def delete_a_movie(self, ID):
         command = "DELETE FROM MovieData_Table WHERE id='{}';".format(ID)
+
+        with DBConnection() as connection:
+            cursor = connection.cursor()
+            cursor.execute(command)
+            connection.commit()
+
+    def update_a_Movie_Title(self, ID, NewTitle):
+        command = "UPDATE MovieData_Table SET title='{}' WHERE id='{}';".format(NewTitle, ID)
 
         with DBConnection() as connection:
             cursor = connection.cursor()

@@ -2,54 +2,63 @@ from DBConnection import DBConnection
 
 
 class Ratings_Table:
-    def insert_a_subject(self, stu_id, subject, score):
-        command = "INSERT INTO subject_info VALUES  ({},'{}',{});".format(stu_id, subject, score)
+    def insert_a_rating(self, userId:int, movieId:int, rating:float, timestamp:int):
+        command = "INSERT INTO Ratings_Table VALUES  ({},{},'{}',{});".format(userId, movieId, rating, timestamp)
             
         with DBConnection() as connection:
             cursor = connection.cursor()
             cursor.execute(command)
             connection.commit()
 
-    def select_a_subject(self, stu_id):
-        command = "SELECT * FROM subject_info WHERE stu_id ='{}';".format(stu_id)
+    def select_a_rating(self, userId:int, movieId:int):
+        command = "SELECT * FROM Ratings_Table WHERE userId ='{}' AND movieId ='{}';".format(userId, movieId)
 
         with DBConnection() as connection:
             cursor = connection.cursor()
             cursor.execute(command)
             record_from_db = cursor.fetchall()
 
-        return [row['subject'] for row in record_from_db]
+        return [row['rating'] for row in record_from_db], [row['timestamp'] for row in record_from_db]
     
-    def select_a_score(self, stu_id, subject):
-        command = "SELECT * FROM subject_info WHERE stu_id ='{}' AND subject ='{}';".format(stu_id, subject)
+    def select_a_User_all_ratings(self, userId:int):
+        command = "SELECT * FROM Ratings_Table WHERE userId ='{}';".format(userId)
 
         with DBConnection() as connection:
             cursor = connection.cursor()
             cursor.execute(command)
             record_from_db = cursor.fetchall()
 
-        return [row['score'] for row in record_from_db]
+        return [row['rating'] for row in record_from_db], [row['timestamp'] for row in record_from_db]
     
-    def select_all_subject(self):
-        command = "SELECT * FROM subject_info;"
+    def select_all_Users_ratings(self):
+        command = "SELECT * FROM Ratings_Table;"
 
         with DBConnection() as connection:
             cursor = connection.cursor()
             cursor.execute(command)
             record_from_db = cursor.fetchall()
 
-        return [row['stu_id'] for row in record_from_db], [row['subject'] for row in record_from_db], [row['score'] for row in record_from_db]
+        return [row['userId'] for row in record_from_db], [row['movieId'] for row in record_from_db], [row['rating'] for row in record_from_db], [row['timestamp'] for row in record_from_db]
 
-    def delete_a_subject(self, stu_id):
-        command = "DELETE FROM subject_info WHERE stu_id='{}';".format(stu_id)
+    def delete_a_rating(self, userId:int, movieId:int):
+        command = "DELETE FROM Ratings_Table WHERE userId='{}' AND movieId='{}';".format(userId, movieId)
+
+        with DBConnection() as connection:
+            cursor = connection.cursor()
+            cursor.execute(command)
+            connection.commit()
+    
+    def delete_a_user_all_ratings(self, userId:int):
+        command = "DELETE FROM Ratings_Table WHERE userId='{}';".format(userId)
 
         with DBConnection() as connection:
             cursor = connection.cursor()
             cursor.execute(command)
             connection.commit()
 
-    def update_a_score(self, stu_id, subject, new_score):
-        command = "UPDATE subject_info SET score={} WHERE stu_id='{}' AND subject='{}';".format(new_score, stu_id, subject)
+
+    def update_a_rating(self, userId:int, movieId:int, rating:float, timestamp:int):
+        command = "UPDATE Ratings_Table SET rating='{}', timestamp='{}' WHERE userId='{}' AND movieId='{}';".format(rating, timestamp, userId, movieId)
 
         with DBConnection() as connection:
             cursor = connection.cursor()
