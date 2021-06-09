@@ -1,4 +1,4 @@
-from DBConnection import DBConnection
+from DB.DBConnection import DBConnection
 
 # INTEGER PRIMARY KEY 代表id key是固定的 不可以重疊，若移除PRIMARY KEY 則可重疊多個id
 necessary_table_to_create = {

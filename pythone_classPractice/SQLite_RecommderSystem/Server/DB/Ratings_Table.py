@@ -1,4 +1,4 @@
-from DBConnection import DBConnection
+from DB.DBConnection import DBConnection
 
 
 class Ratings_Table:

@@ -1,4 +1,4 @@
-from DBConnection import DBConnection
+from DB.DBConnection import DBConnection
 import json
 
 class MovieData_Table:
