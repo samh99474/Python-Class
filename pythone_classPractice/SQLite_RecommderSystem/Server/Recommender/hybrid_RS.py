@@ -8,6 +8,12 @@ https://www.kaggle.com/rounakbanik/the-movies-dataset
 https://www.learncodewithmike.com/2021/05/pandas-and-sqlite.html
 4.文本數據預處理 - 詞頻、資訊檢索與文本挖掘 (TF-IDF、CountVectorizer)
 https://zh.codeprj.com/blog/8f9c1e1.html
+
+5. dataframe to dict
+https://kanoki.org/2020/03/24/convert-pandas-dataframe-to-dictionary/
+https://www.programiz.com/python-programming/nested-dictionary
+6. dataframe to list-of-dictionaries
+https://stackoverflow.com/questions/29815129/pandas-dataframe-to-list-of-dictionaries
 """
 import pandas as pd
 import numpy as np
@@ -192,6 +198,9 @@ recommendMovie_hybrid['indices'] = recommendMovie_hybrid.index
 recommendMovie.reset_index(drop=True, inplace=True)
 recommendMovie_hybrid.reset_index(drop=True, inplace=True)
 
-dict_recommendMovie = recommendMovie.to_dict('index')
-dict_recommendMovie_hybrid = recommendMovie_hybrid.to_dict('index')
+"""dict_recommendMovie = recommendMovie.to_dict('index')
+dict_recommendMovie_hybrid = recommendMovie_hybrid.to_dict('index')"""
 
+list_of_dicts_recommendMovie = recommendMovie.T.to_dict().values()
+list_of_dicts_recommendMovie_hybrid = recommendMovie_hybrid.T.to_dict().values()
+print(list_of_dicts_recommendMovie_hybrid)
