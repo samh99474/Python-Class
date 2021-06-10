@@ -10,18 +10,15 @@ necessary_table_to_create = {
                 belongs_to_collection	TEXT,
                 budget	INTEGER,
                 genres	TEXT,
-                homepage	TEXT,
                 id	INTEGER,
                 imdb_id	TEXT,
                 original_language	TEXT,
                 original_title	TEXT,
                 overview	TEXT,
                 popularity	REAL,
-                poster_path	TEXT,
                 production_companies	TEXT,
                 production_countries	TEXT,
                 release_date	TEXT,
-                revenue	REAL,
                 runtime	REAL,
                 spoken_languages	TEXT,
                 status	TEXT,
@@ -33,11 +30,7 @@ necessary_table_to_create = {
                 year	INTEGER,
                 cast	TEXT,
                 crew	TEXT,
-                keywords	TEXT,
-                cast_size	INTEGER,
-                crew_size	INTEGER,
-                director	TEXT,
-                soup	TEXT        
+                keywords	TEXT
             );
         """,
 

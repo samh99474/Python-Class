@@ -14,7 +14,7 @@ Movie_Name = "samh"
 print("\Insert Movie: {}\n",format(Movie_Name))
 MovieData_Table().insert_a_Movie(Movie_Name,"overview","2021-6-9","600","en",2021,False,['Action','Comedy'],['Sam','GD'],
 [{'credit_id': '52fe440ac3a36847f807ee01', 'department': 'Camera', 'gender': 2, 'id': 1657, 'job': 'Director of Photography', 'name': 'Henri Decaë', 'profile_path': None}],
-['keyword', 'samurai', 'classic'],"Director")
+['keyword', 'samurai', 'classic'])
 
 ID = MovieData_Table().select_a_ID(Movie_Name)
 select_Movie_Name = MovieData_Table().select_a_Movie_Name(ID[0])
