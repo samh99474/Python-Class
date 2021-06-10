@@ -186,5 +186,12 @@ Recommed_Top_Num = 20
 recommendMovie_hybrid = hybrid_recommendations(User_ID, WatchedMovie, Recommed_Top_Num)
 print("\nBecause you watch :{}, \nso we recommend you the top-{} most similar movies(Hybrid):\n{}".format(WatchedMovie, Recommed_Top_Num, recommendMovie_hybrid))
 
+recommendMovie['indices'] = recommendMovie.index
+recommendMovie_hybrid['indices'] = recommendMovie_hybrid.index
 
+recommendMovie.reset_index(drop=True, inplace=True)
+recommendMovie_hybrid.reset_index(drop=True, inplace=True)
+
+dict_recommendMovie = recommendMovie.to_dict('index')
+dict_recommendMovie_hybrid = recommendMovie_hybrid.to_dict('index')
 
