@@ -1,6 +1,7 @@
 from ServerAction.Server_Get_Movie_RS import Server_Get_Movie_RS
 from ServerAction.Server_AddUser import Server_AddUser
 from ServerAction.Server_QueryUser import Server_QueryUser
+from ServerAction.Server_QueryMovie import Server_QueryMovie
 from ServerAction.Server_Rating import Server_Rating
 
 from Socket_Server import SocketServer
@@ -14,6 +15,7 @@ port = 20001
 action_list = {
     "RS": Server_Get_Movie_RS,
     "queryUser": Server_QueryUser,
+    "queryMovie":Server_QueryMovie,
     "addUser": Server_AddUser,
     "rating": Server_Rating
 }

@@ -20,11 +20,11 @@ class Server_Get_Movie_RS:
                 userName = info["userName"]
                 userId = info["userId"]
                 movieTitle = info["movieTitle"]
-                movieId = info["movieId"]
+                id = info["id"]
                 Recommed_Top_Num = info["Recommed_Top_Num"]
                 RS_method = info["RS_method"]
 
-            RS_result = RS_action_list[RS_method]().execute(userId=userId, Watched_Movie_title=movieTitle, Watched_Movie_ID=movieId, 
+            RS_result = RS_action_list[RS_method]().execute(userId=userId, Watched_Movie_title=movieTitle, Watched_Movie_ID=id, 
             Recommed_Top_Num=Recommed_Top_Num)
 
             status = True

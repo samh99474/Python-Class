@@ -25,8 +25,8 @@ class Get_Movie_RS():
             RS_dict["movieTitle"] = movieTitle
 
             print("輸入電影ID")
-            movieId = int(input("  Please input a movies's ID: "))
-            RS_dict["movieId"] = movieId
+            id = int(input("  Please input a movies's ID: "))
+            RS_dict["id"] = id
 
             print("輸入欲得到之推薦數量:")
             Recommed_Top_Num = int(input("  Please input a Recommed_Top_Num: "))

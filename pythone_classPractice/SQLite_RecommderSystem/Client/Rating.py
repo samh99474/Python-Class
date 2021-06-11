@@ -15,7 +15,7 @@ class Rating():
             userId = str(input("  Please input a user's ID: "))
             rating_dict["userId"] = userId
 
-            print("請輸入電影ID")
+            print("請輸入電影movieId")
             movieId = int(input("  Please input a movieId: "))
             rating_dict["movieId"] = movieId
 
@@ -31,10 +31,10 @@ class Rating():
             boolean, result = self.socket_client.wait_response()
             result = json.loads(result) # convert dictionary string to dictionary
             if result['status'] == "Fail":
-                print("此名稱不存在，您不可以新增此學生")
+                print("此用戶名稱不存在")
                 success = False
             else:
-                print("此名稱存在，您可以新增此學生")
+                print("此用戶名稱存在")
                 success = True
         
         except Exception as e:      #若try有錯誤，則執行except
