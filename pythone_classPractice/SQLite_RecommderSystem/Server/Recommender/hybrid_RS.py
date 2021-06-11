@@ -7,15 +7,21 @@ from ast import literal_eval
 from surprise import Reader, Dataset, SVD #pip install scikit-surprise  之前必須先下載"pip install wheel"、"Microsoft Visual C++ 14.0 or greater"
 from surprise.model_selection import cross_validate, train_test_split
 
+from DB.DBConnection import DBConnection
+from DB.DBInitializer import DBInitializer
+
 import sqlite3
 
 class hybrid_RS:
     def __init__(self):
-        self.conn = sqlite3.connect('../UserMovie.db')  #連接資料庫
+        print("hybrid_RS initialized")
+
+    def execute(self, userId, Watched_Movie_title, Watched_Movie_ID, Recommed_Top_Num):
+        self.conn = sqlite3.connect('./UserMovie.db')  #連接資料庫
         
-        self.smd = pd.read_sql("SELECT * FROM MovieData_Table", self.conn)
-        self.ratings = pd.read_sql("SELECT * FROM Ratings_Table", self.conn)
-        self.id_map = pd.read_sql("SELECT * FROM MovieID_map_Table", self.conn)
+        self.smd = pd.read_sql("SELECT * FROM MovieData_Table;", self.conn)
+        self.ratings = pd.read_sql("SELECT * FROM Ratings_Table;", self.conn)
+        self.id_map = pd.read_sql("SELECT * FROM MovieID_map_Table;", self.conn)
         self.id_map.set_index('id', inplace=True)
 
         self.titles = self.smd['title']
@@ -42,9 +48,6 @@ class hybrid_RS:
 
         self.titles = self.smd['title']
         self.indices = pd.Series(self.smd.index, index=self.smd['title'])
-        print("hybrid_RS initialized")
-
-    def execute(self, userId, Watched_Movie_title, Watched_Movie_ID, Recommed_Top_Num):
         #============================= Hybrid Recommender ===============================
         #CountVectorizer 結合 TfidfTransformer
         count_vectorizer = CountVectorizer(analyzer='word',ngram_range=(1, 2),min_df=0, stop_words='english')

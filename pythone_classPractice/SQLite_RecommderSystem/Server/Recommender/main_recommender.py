@@ -15,8 +15,8 @@ https://www.programiz.com/python-programming/nested-dictionary
 6. dataframe to list-of-dictionaries
 https://stackoverflow.com/questions/29815129/pandas-dataframe-to-list-of-dictionaries
 """
-from contentBased_RS import contentBased_RS
-from hybrid_RS import hybrid_RS
+from Recommender.contentBased_RS import contentBased_RS
+from Recommender.hybrid_RS import hybrid_RS
 import warnings; warnings.simplefilter('ignore')
 
 action_list = {
@@ -33,7 +33,7 @@ class main_recommender:
         Recommed_Top_Num=Recommed_Top_Num)
         return self.RS_result
 
-main_RS = main_recommender()
+"""main_RS = main_recommender()
 result = main_RS.execute(Watched_Movie_title="Toy Story", Watched_Movie_ID=863, userId=1, RS_method="hybrid", Recommed_Top_Num=20)
 print(result)
-
+"""

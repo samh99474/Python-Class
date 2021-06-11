@@ -38,11 +38,17 @@ from sklearn.metrics.pairwise import linear_kernel, cosine_similarity
 from ast import literal_eval
 import sqlite3
 
+from DB.DBConnection import DBConnection
+from DB.DBInitializer import DBInitializer
+
 class contentBased_RS:
     def __init__(self):
-        self.conn = sqlite3.connect('../UserMovie.db')  #連接資料庫
+        print("contentBased_RS initialized")
+    
+    def execute(self, userId, Watched_Movie_title, Watched_Movie_ID, Recommed_Top_Num):
+        self.conn = sqlite3.connect('./UserMovie.db')  #連接資料庫
         
-        self.smd = pd.read_sql("SELECT * FROM MovieData_Table", self.conn)
+        self.smd = pd.read_sql("SELECT * FROM MovieData_Table;", self.conn)
 
         self.titles = self.smd['title']
         self.indices = pd.Series(self.smd.index, index=self.smd['title'])
@@ -68,9 +74,6 @@ class contentBased_RS:
 
         self.titles = self.smd['title']
         self.indices = pd.Series(self.smd.index, index=self.smd['title'])
-        print("contentBased_RS initialized")
-    
-    def execute(self, userId, Watched_Movie_title, Watched_Movie_ID, Recommed_Top_Num):
 
         #CountVectorizer 結合 TfidfTransformer
         count_vectorizer = CountVectorizer(analyzer='word',ngram_range=(1, 2),min_df=0, stop_words='english')
