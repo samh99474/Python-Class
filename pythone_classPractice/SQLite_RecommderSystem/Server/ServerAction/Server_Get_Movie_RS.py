@@ -1,4 +1,3 @@
-from Recommender.main_recommender import main_recommender
 from Recommender.contentBased_RS import contentBased_RS
 from Recommender.hybrid_RS import hybrid_RS
 

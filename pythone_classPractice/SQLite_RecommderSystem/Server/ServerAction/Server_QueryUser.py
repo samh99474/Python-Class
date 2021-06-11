@@ -1,5 +1,5 @@
 from DB.User_info_Table import User_info_Table
-class Server_QueryStu:
+class Server_QueryUser:
     
     def __init__(self):
         print("initialized")

@@ -43,7 +43,7 @@ class Get_Movie_RS():
             RS_list_info.append(RS_dict)
 
             #先查詢query是否存在此學生名稱
-            self.socket_client.send_command("query", query_user_list)
+            self.socket_client.send_command("queryUser", query_user_list)
             print("\nclient send data to server => \'command\':{}, \'parameters\':{}".format("query", query_user_list))
 
             boolean, result = self.socket_client.wait_response()

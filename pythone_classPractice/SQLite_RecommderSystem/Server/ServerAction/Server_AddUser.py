@@ -1,6 +1,6 @@
 from DB.User_info_Table import User_info_Table
 
-class Server_AddStu:
+class Server_AddUser:
 
     def __init__(self):
         print("initialized")

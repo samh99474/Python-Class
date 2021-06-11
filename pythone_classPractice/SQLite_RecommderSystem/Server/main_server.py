@@ -1,6 +1,6 @@
 from ServerAction.Server_Get_Movie_RS import Server_Get_Movie_RS
-from ServerAction.Server_AddUser import Server_AddStu
-from ServerAction.Server_QueryUser import Server_QueryStu
+from ServerAction.Server_AddUser import Server_AddUser
+from ServerAction.Server_QueryUser import Server_QueryUser
 
 from Socket_Server import SocketServer
 
@@ -12,8 +12,8 @@ port = 20001
 
 action_list = {
     "RS": Server_Get_Movie_RS,
-    "query": Server_QueryStu,
-    "add": Server_AddStu
+    "queryUser": Server_QueryUser,
+    "addUser": Server_AddUser
 }
 class JobDispatcher:
     def __init__(self):

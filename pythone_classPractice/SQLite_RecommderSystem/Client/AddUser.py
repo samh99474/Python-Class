@@ -16,7 +16,7 @@ class AddUser():
             query_list_info.append(query_user_dict)
 
             #先查詢query是否存在此學生名稱
-            self.socket_client.send_command("query", query_list_info)
+            self.socket_client.send_command("queryUser", query_list_info)
             print("\nclient send data to server => \'command\':{}, \'parameters\':{}".format("query", query_list_info))
 
             boolean, result = self.socket_client.wait_response()
@@ -38,7 +38,7 @@ class AddUser():
                 add_list_info = list()
                 add_list_info.append(add_user_dict)
                 #=========================== socket_client 傳送指令和資料給server==================
-                self.socket_client.send_command("add", add_list_info)
+                self.socket_client.send_command("addUser", add_list_info)
                 print("\nclient send data to server => \'command\':{}, \'parameters\':{}".format("add", add_list_info))
 
                 boolean, result = self.socket_client.wait_response()
