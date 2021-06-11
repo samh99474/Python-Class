@@ -15,7 +15,7 @@ class AddUser():
             query_list_info = list()
             query_list_info.append(query_user_dict)
 
-            #先查詢query是否存在此學生名稱
+            #先查詢query是否存在用戶名稱
             self.socket_client.send_command("queryUser", query_list_info)
             print("\nclient send data to server => \'command\':{}, \'parameters\':{}".format("query", query_list_info))
 
@@ -27,7 +27,7 @@ class AddUser():
                 add_user_dict["userName"] = userName  
                 success = True
             else:
-                print("此名稱存在，您不可以新增此學生,")
+                print("此名稱存在，您不可以新增此學生")
                 success = False
         
         except Exception as e:      #若try有錯誤，則執行except
